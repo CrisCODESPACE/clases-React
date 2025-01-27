@@ -2,7 +2,8 @@
 // import Greeting from "./components/Greeting";
 // import Profile from "./components/Profile";
 // import List from "./components/List.jsx";
-import Alerta from './components/Alerta';
+// import Alerta from './components/Alerta';
+import ComponenteClase from './components/ComponenteClase';
 import './styles/App.css'
 
 function App() {
@@ -16,9 +17,10 @@ function App() {
       <Profile nombre="Juan" nombreUser="Juanito" email="juan@juan.com" edad={22}/> */}
       {/* <h2>Mi lista de tareas</h2>
       <List tasks={tareas}/> */}
-      <Alerta mensaje="Error al cargar el componente" tipo="error"/>
+      {/* <Alerta mensaje="Error al cargar el componente" tipo="error"/>
       <Alerta mensaje="Éxito al cargar el componente" tipo="success"/>
-      <Alerta mensaje="El componente no se ha cargado correctamente" tipo="warning"/>
+      <Alerta mensaje="El componente no se ha cargado correctamente" tipo="warning"/> */}
+      <ComponenteClase/>
     </div>
   );
 }
