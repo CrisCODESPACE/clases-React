@@ -1,4 +1,5 @@
 import { useState } from "react";
+import '../styles/Contador.css'
 
 const Contador = () => {
     // inicializar el estado con un valor inicial de 0
