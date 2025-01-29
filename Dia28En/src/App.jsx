@@ -19,6 +19,9 @@ function App() {
  
 
   //aquí html
+  //aquí html
+  //aquí html
+  //aquí html
   return (
     <>
     <Contador/>
