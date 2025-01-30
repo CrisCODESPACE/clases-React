@@ -75,12 +75,13 @@ const products = [
 
 function App() {
   const [filterText, setFilterText] = useState("");
+  const [inStockOnly, setInStockOnly] = useState(false);
   
   return (
     <>
       <h1>Admin panel</h1>
-      <SearchBar filterText={filterText} onFilterText={setFilterText}/>
-      <ProductTable products={products} filterText={filterText}/>
+      <SearchBar filterText={filterText} onFilterText={setFilterText} inStockOnly={inStockOnly} onInStockChange={setInStockOnly}/>
+      <ProductTable products={products} filterText={filterText} inStockOnly={inStockOnly}/>
     </>
   )
 }
