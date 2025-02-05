@@ -18,17 +18,30 @@ import "./App.css";
 // }
 
 // IMPORTACIONES
-import { CounterProvider } from "./context/CounterContext";
-import DisplayCounterComponent from "./components/DisplayCounterComponent";
-import IncrementButtonComponent from "./components/IncrementButtonComponent";
+// import { CounterProvider } from "./context/CounterContext";
+// import DisplayCounterComponent from "./components/DisplayCounterComponent";
+// import IncrementButtonComponent from "./components/IncrementButtonComponent";
+
+// function App() {
+//   return (
+//     <CounterProvider>
+//       <h1>Contador</h1>
+//       <DisplayCounterComponent />
+//       <IncrementButtonComponent />
+//     </CounterProvider>
+//   );
+// }
+
+//IMPORTACIONES
+import ThemeButtonComponent from "./components/ThemeButtonContext";
+import { ThemeProvider } from "./context/ThemeContext";
 
 function App() {
   return (
-    <CounterProvider>
-      <h1>Contador</h1>
-      <DisplayCounterComponent />
-      <IncrementButtonComponent />
-    </CounterProvider>
+    <ThemeProvider>
+      <h1>Cambio de tema</h1>
+      <ThemeButtonComponent />
+    </ThemeProvider>
   );
 }
 
