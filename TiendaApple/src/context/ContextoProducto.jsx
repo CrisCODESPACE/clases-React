@@ -9,6 +9,7 @@ export const ContextoProducto = createContext();
 export const ContextoProvider = ({ children }) => {
   const [todosProductos, setTodosProductos] = useState([]);
   const [productosCarrito, setProductosCarrito] = useState([]);
+  const [productoSeleccionado, setProductoSeleccionado] = useState(null);
 
   useEffect(() => {
     setTodosProductos(getAllProducts());
@@ -82,7 +83,10 @@ export const ContextoProvider = ({ children }) => {
         productosCarrito,
         addProduct,
         increaseProduct,
-        decreaseProduct, deleteProduct
+        decreaseProduct,
+        deleteProduct,
+        productoSeleccionado,
+        setProductoSeleccionado
       }}
     >
       {children}
