@@ -2,9 +2,10 @@ import { useContext } from "react";
 import { ContextoProducto } from "../context/ContextoProducto";
 
 const ListaProductos = () => {
-  const { todosProductos } = useContext(ContextoProducto);
+  const { todosProductos, addProduct } = useContext(ContextoProducto);
 
   return (
+    // renderizamos el componente
     <div>
       <h2>Catálogo</h2>
       <ul>
@@ -15,6 +16,9 @@ const ListaProductos = () => {
               <strong>{producto.nombre}</strong>
             </p>
             <p>{producto.precio}€</p>
+            <button onClick={() => addProduct(producto)}>
+              Añadir al carrito
+            </button>
           </li>
         ))}
       </ul>
