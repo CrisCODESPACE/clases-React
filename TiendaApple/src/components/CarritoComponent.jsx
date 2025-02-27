@@ -4,7 +4,7 @@ import { ContextoProducto } from "../context/ContextoProducto";
 // consumimos el contexto
 
 export const CarritoComponent = () => {
-  const { productosCarrito, increaseProduct, decreaseProduct } =
+  const { productosCarrito, increaseProduct, decreaseProduct, deleteProduct } =
     useContext(ContextoProducto);
 
   return (
@@ -23,6 +23,7 @@ export const CarritoComponent = () => {
               <p>Cantidad: {producto.cantidad}</p>
               <button onClick={() => increaseProduct(producto)}>+</button>
             </div>
+            <button onClick={()=> deleteProduct(producto.id)}>Eliminar producto del carrito</button>
           </li>
         ))}
       </ul>
