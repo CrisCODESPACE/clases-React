@@ -24,7 +24,7 @@ export const ContextoProvider = ({ children }) => {
     if (existingProducts) {
       increaseProduct(producto);
     } else {
-      return setProductosCarrito([...productosCarrito, producto]);
+      return setProductosCarrito([...productosCarrito, {...producto, cantidad: 1}]);
     }
 
     // setProductosCarrito([...productosCarrito, producto]);
@@ -50,26 +50,29 @@ export const ContextoProvider = ({ children }) => {
 
   // función manejadora para eliminar productos al carrito
 
-  const deleteProduct = () => {};
+  const deleteProduct = (productoId) => {
+    // usamos filter para crear un nuevo array excluyendo el productoid seleccionado
+    setProductosCarrito(productosCarrito.filter(producto => producto.id !== productoId))
+
+  };
+
   /* Función para disminuir la cantidad de un producto en el carrito y
  que lo elimine completamente al decrementar cuando la cantidad es 1*/
 
-  const decreaseProduct = (producto) => {
-    const existingProducts = productosCarrito.find(
-      (item) => item.id === producto.id
-    );
-
-    if (existingProducts) {
-      setProductosCarrito(
-        productosCarrito.map((item) =>
-          item.id === producto.id
-            ? { ...item, cantidad: (item.cantidad || 1) - 1 }
-            : item
-        )
-      );
+ const decreaseProduct = (producto) => {
+ 
+  const existingProducts = productosCarrito.find((item) => item.id === producto.id);
+ 
+  if (existingProducts) {
+    if (producto.cantidad === 1){
+      // al hacer click comprobamos si cantidad es 1, si es así, ejecutamos la función que borra el producto 
+     deleteProduct(producto.id);
+    }else{
+     setProductosCarrito(productosCarrito.map((item) => item.id === producto.id ? {...item, cantidad: item.cantidad -1} : item)) 
     }
-  };
-
+    
+  }
+ }
   return (
     // renderizamos el componente
 
@@ -79,7 +82,7 @@ export const ContextoProvider = ({ children }) => {
         productosCarrito,
         addProduct,
         increaseProduct,
-        decreaseProduct,
+        decreaseProduct, deleteProduct
       }}
     >
       {children}
